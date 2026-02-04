@@ -17,20 +17,25 @@ export default function HomeClient() {
       {/* SUBTLE BACKGROUND BLOBS (global) */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         {/* Top / Hero */}
-        <div className="absolute -top-40 -left-32 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-200/60 via-sky-100/50 to-transparent blur-3xl opacity-40 md:h-[720px] md:w-[720px]" />
-        <div className="absolute -top-48 -right-40 h-[520px] w-[520px] rounded-full bg-gradient-to-bl from-sky-200/55 via-cyan-100/45 to-transparent blur-3xl opacity-38 md:h-[760px] md:w-[760px]" />
+        <div className="absolute -top-20 left-0 h-[600px] w-full rounded-full bg-gradient-to-br from-sky-200/80 via-sky-100/60 to-transparent blur-3xl opacity-60 md:h-[800px]" />
+        <div className="absolute -top-20 right-0 h-[600px] w-full rounded-full bg-gradient-to-bl from-sky-200/70 via-cyan-100/50 to-transparent blur-3xl opacity-60 md:h-[800px]" />
 
         {/* Mid sections */}
-        <div className="absolute top-[28%] left-[10%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-200/50 via-blue-100/40 to-transparent blur-3xl opacity-32 md:h-[780px] md:w-[780px]" />
-        <div className="absolute top-[46%] right-[8%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-200/45 via-cyan-100/35 to-transparent blur-3xl opacity-30 md:h-[760px] md:w-[760px]" />
+        <div className="absolute top-[25%] left-0 h-[600px] w-full rounded-full bg-gradient-to-br from-sky-200/70 via-blue-100/60 to-transparent blur-3xl opacity-50 md:h-[800px]" />
+        <div className="absolute top-[45%] right-0 h-[600px] w-full rounded-full bg-gradient-to-br from-sky-200/60 via-cyan-100/50 to-transparent blur-3xl opacity-50 md:h-[800px]" />
 
         {/* Lower sections */}
-        <div className="absolute top-[68%] left-[18%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-200/45 via-blue-100/35 to-transparent blur-3xl opacity-28 md:h-[820px] md:w-[820px]" />
-        <div className="absolute top-[84%] right-[16%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-200/40 via-cyan-100/30 to-transparent blur-3xl opacity-26 md:h-[820px] md:w-[820px]" />
+        <div className="absolute top-[65%] left-0 h-[600px] w-full rounded-full bg-gradient-to-br from-sky-200/60 via-blue-100/50 to-transparent blur-3xl opacity-40 md:h-[800px]" />
+        <div className="absolute top-[85%] right-0 h-[600px] w-full rounded-full bg-gradient-to-br from-sky-200/50 via-cyan-100/40 to-transparent blur-3xl opacity-40 md:h-[800px]" />
       </div>
       {/* HERO */}
       <Container>
         <MotionSection initial="hidden" animate="show" variants={stagger} className="pt-14 relative overflow-hidden">
+          {/* Section gradient */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 min-h-screen -z-10 bg-gradient-to-br from-sky-100/40 via-white to-emerald-100/30"
+          />
           <MotionDiv variants={fadeUp} className="flex flex-wrap gap-2">
             <Badge>Weekly group runs</Badge>
             <Badge>Structured sessions</Badge>
@@ -43,14 +48,14 @@ export default function HomeClient() {
                 {site.tagline}
                 <span
                   aria-hidden="true"
-                  className="absolute -bottom-2 left-0 h-2 w-full rounded-full bg-gradient-to-r from-emerald-300/70 via-sky-300/60 to-transparent"
+                  className="absolute -bottom-2 left-0 h-2 w-full rounded-full bg-gradient-to-r from-sky-300/70 via-blue-300/60 to-transparent"
                 />
               </span>
             </h1>
 
             {/* NOTE: your copy still uses dark-theme classes below.
                If you’ve moved to white/blue theme, swap text colours later. */}
-            <p className="mt-5 max-w-2xl text-black/70 md:text-lg">
+            <p className="mt-5 max-w-2xl text-black md:text-lg">
               A modern running club built on structure and support — show up, follow the plan,
               and watch the progress stack up.
             </p>
@@ -81,21 +86,21 @@ export default function HomeClient() {
               <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-5">
                 <p className="text-sm text-blue-700">Session types</p>
                 <p className="mt-2 text-lg font-medium text-black">Track · Tempo · Long runs</p>
-                <p className="mt-2 text-sm text-black/60">
+                <p className="mt-2 text-sm text-black/70">
                   Effort-based options so everyone trains together.
                 </p>
               </div>
               <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-5">
                 <p className="text-sm text-blue-700">Coached structure</p>
                 <p className="mt-2 text-lg font-medium text-black">Warm-up → Work → Cooldown</p>
-                <p className="mt-2 text-sm text-black/60">
+                <p className="mt-2 text-sm text-black/70">
                   No guesswork. Just show up and run.
                 </p>
               </div>
               <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-5">
                 <p className="text-sm text-blue-700">Community</p>
                 <p className="mt-2 text-lg font-medium text-black">Support + accountability</p>
-                <p className="mt-2 text-sm text-black/60">
+                <p className="mt-2 text-sm text-black/70">
                   Consistency feels easier when you’re not doing it alone.
                 </p>
               </div>
@@ -128,8 +133,13 @@ export default function HomeClient() {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           variants={stagger}
-          className="pb-6"
+          className="pb-6 relative overflow-hidden"
         >
+          {/* Section gradient */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 min-h-screen -z-10 bg-gradient-to-br from-sky-100/35 via-white to-emerald-100/25"
+          />
           <MotionDiv variants={fadeUp}>
             <SectionHeading
               eyebrow="The Strive approach"
@@ -159,26 +169,31 @@ export default function HomeClient() {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
-          className="py-14"
+          className="py-14 relative overflow-hidden"
         >
+          {/* Section gradient */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 min-h-screen -z-10 bg-gradient-to-tr from-emerald-100/35 via-white to-sky-100/35"
+          />
           <MotionDiv variants={fadeUp} className="grid gap-4 md:grid-cols-2">
             <div className="noise rounded-3xl border border-blue-100 bg-white p-7">
               <p className="text-xs uppercase tracking-[0.18em] text-blue-700">This week in Glasgow</p>
               <h3 className="mt-3 text-2xl font-semibold tracking-tight text-black">Three simple pillars</h3>
 
-              <ul className="mt-5 space-y-3 text-black/80">
+              <ul className="mt-5 space-y-3 text-black">
                 <li className="flex items-center justify-between rounded-2xl border border-blue-100 bg-blue-50/40 px-4 py-3">
-                  <span>Mon · Easy social</span><span className="text-black/55">45 mins</span>
+                  <span>Mon · Easy social</span><span className="text-black/70">45 mins</span>
                 </li>
                 <li className="flex items-center justify-between rounded-2xl border border-blue-100 bg-blue-50/40 px-4 py-3">
-                  <span>Wed · Session night</span><span className="text-black/55">Intervals</span>
+                  <span>Wed · Session night</span><span className="text-black/70">Intervals</span>
                 </li>
                 <li className="flex items-center justify-between rounded-2xl border border-blue-100 bg-blue-50/40 px-4 py-3">
-                  <span>Sat · Long run + coffee</span><span className="text-black/55">Social</span>
+                  <span>Sat · Long run + coffee</span><span className="text-black/70">Social</span>
                 </li>
               </ul>
 
-              <p className="mt-4 text-sm text-black/60">
+              <p className="mt-4 text-sm text-black/70">
                 Later we can wire this to a Google Sheet / CMS so you can update it quickly.
               </p>
             </div>
@@ -186,16 +201,16 @@ export default function HomeClient() {
             <div className="rounded-3xl border border-blue-100 bg-white p-7">
               <p className="text-xs uppercase tracking-[0.18em] text-blue-700">Join</p>
               <h3 className="mt-3 text-2xl font-semibold tracking-tight text-black">Ready to start?</h3>
-              <p className="mt-4 text-black/70">Pick a plan, get the schedule, and turn up. We’ll do the rest.</p>
+              <p className="mt-4 text-black">Pick a plan, get the schedule, and turn up. We’ll do the rest.</p>
 
               <div className="mt-7 grid gap-3">
                 <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-4">
                   <p className="text-sm font-medium text-black">Club Membership</p>
-                  <p className="mt-1 text-sm text-black/60">Group sessions + community access.</p>
+                  <p className="mt-1 text-sm text-black/70">Group sessions + community access.</p>
                 </div>
                 <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-4">
                   <p className="text-sm font-medium text-black">Coached Plan</p>
-                  <p className="mt-1 text-sm text-black/60">Extra structure and accountability.</p>
+                  <p className="mt-1 text-sm text-black/70">Extra structure and accountability.</p>
                 </div>
               </div>
 
@@ -215,8 +230,13 @@ export default function HomeClient() {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
-          className=""
+          className="relative overflow-hidden"
         >
+          {/* Section gradient */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 min-h-screen -z-10 bg-gradient-to-br from-sky-100/30 via-white to-emerald-100/30"
+          />
           <MotionDiv variants={fadeUp}>
             <SectionHeading
               eyebrow="FAQ"

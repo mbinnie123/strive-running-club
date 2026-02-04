@@ -30,15 +30,15 @@ export default function FAQ() {
             key={f.q}
             onClick={() => setOpen(isOpen ? null : idx)}
             className={cn(
-              "w-full rounded-3xl border border-white/10 bg-white/[0.03] text-left transition",
-              "hover:bg-white/[0.05]"
+              "w-full rounded-3xl border border-black/10 bg-black/[0.03] text-left transition",
+              "hover:bg-black/[0.05]"
             )}
           >
             <div className="flex items-center justify-between gap-4 px-5 py-5">
-              <p className="font-medium text-white">{f.q}</p>
+              <p className="font-medium text-black">{f.q}</p>
               <span
                 className={cn(
-                  "inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-black/30 text-white/70 transition",
+                  "inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-black/5 text-black/70 transition",
                   isOpen && "rotate-45"
                 )}
               >
@@ -52,7 +52,7 @@ export default function FAQ() {
               )}
             >
               <div className="overflow-hidden px-5">
-                <p className="text-sm text-white/70">{f.a}</p>
+                <p className="text-sm text-black/70">{f.a}</p>
               </div>
             </div>
           </button>
