@@ -3,26 +3,27 @@ import { cn } from "@/lib/utils";
 
 type Variant = "primary" | "secondary";
 
-type LinkButtonProps = {
-  href: string;
-  onClick?: never;
+type Props = {
   children: React.ReactNode;
   variant?: Variant;
   className?: string;
-};
 
-type ActionButtonProps = {
-  href?: never;
-  onClick: React.ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
-  children: React.ReactNode;
-  variant?: Variant;
-  className?: string;
+  // Link mode
+  href?: string;
+
+  // Button mode
+  onClick?: React.ButtonHTMLAttributes<HTMLButtonElement>["onClick"];
   type?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
 };
 
-type Props = LinkButtonProps | ActionButtonProps;
-
-export default function Button(props: Props) {
+export default function Button({
+  children,
+  variant = "primary",
+  className,
+  href,
+  onClick,
+  type,
+}: Props) {
   const base =
     "group inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition " +
     "focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-white " +
@@ -35,13 +36,13 @@ export default function Button(props: Props) {
       "border border-blue-200 bg-white text-blue-700 hover:bg-blue-50",
   };
 
-  const className = cn(base, variants[props.variant ?? "primary"], props.className);
+  const classes = cn(base, variants[variant], className);
 
   // LINK BUTTON
-  if ("href" in props) {
+  if (href) {
     return (
-      <Link href={props.href} className={className}>
-        {props.children}
+      <Link href={href} className={classes}>
+        {children}
         <span className="h-1.5 w-1.5 rounded-full bg-white/70 transition group-hover:scale-125" />
       </Link>
     );
@@ -49,8 +50,8 @@ export default function Button(props: Props) {
 
   // ACTION BUTTON
   return (
-    <button onClick={props.onClick} type={props.type ?? "button"} className={className}>
-      {props.children}
+    <button type={type ?? "button"} onClick={onClick} className={classes}>
+      {children}
       <span className="h-1.5 w-1.5 rounded-full bg-white/70 transition group-hover:scale-125" />
     </button>
   );
