@@ -29,13 +29,13 @@ export default function HomeClient() {
         <div className="absolute top-[85%] right-0 h-[600px] w-full rounded-full bg-gradient-to-br from-sky-200/50 via-cyan-100/40 to-transparent blur-3xl opacity-40 md:h-[800px]" />
       </div>
       {/* HERO */}
-      <Container>
-        <MotionSection initial="hidden" animate="show" variants={stagger} className="pt-14 relative overflow-hidden">
+      <MotionSection initial="hidden" animate="show" variants={stagger} className="pt-14 relative overflow-hidden">
           {/* Section gradient */}
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 min-h-screen -z-10 bg-gradient-to-br from-sky-100/40 via-white to-emerald-100/30"
           />
+        <Container>
           <MotionDiv variants={fadeUp} className="flex flex-wrap gap-2">
             <Badge>Weekly group runs</Badge>
             <Badge>Structured sessions</Badge>
@@ -116,8 +116,8 @@ export default function HomeClient() {
               className="w-full opacity-20 mix-blend-multiply"
             />
           </div>
-        </MotionSection>
-      </Container>
+        </Container>
+      </MotionSection>
 
       {/* MARQUEE */}
       <Container>
@@ -127,8 +127,7 @@ export default function HomeClient() {
       </Container>
 
       {/* WHAT YOU GET */}
-      <Container>
-        <MotionSection
+      <MotionSection
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
@@ -140,6 +139,7 @@ export default function HomeClient() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 min-h-screen -z-10 bg-gradient-to-br from-sky-100/35 via-white to-emerald-100/25"
           />
+        <Container>
           <MotionDiv variants={fadeUp}>
             <SectionHeading
               eyebrow="The Strive approach"
@@ -159,12 +159,11 @@ export default function HomeClient() {
               <Card title="Good vibes, no ego" body="Supportive culture — we train hard and enjoy it." />
             </MotionDiv>
           </div>
-        </MotionSection>
-      </Container>
+        </Container>
+      </MotionSection>
 
       {/* THIS WEEK */}
-      <Container>
-        <MotionSection
+      <MotionSection
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
@@ -176,6 +175,7 @@ export default function HomeClient() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 min-h-screen -z-10 bg-gradient-to-tr from-emerald-100/35 via-white to-sky-100/35"
           />
+        <Container>
           <MotionDiv variants={fadeUp} className="grid gap-4 md:grid-cols-2">
             <div className="noise rounded-3xl border border-blue-100 bg-white p-7">
               <p className="text-xs uppercase tracking-[0.18em] text-blue-700">This week in Glasgow</p>
@@ -220,12 +220,11 @@ export default function HomeClient() {
               </div>
             </div>
           </MotionDiv>
-        </MotionSection>
-      </Container>
+        </Container>
+      </MotionSection>
 
       {/* FAQ */}
-      <Container>
-        <MotionSection
+      <MotionSection
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
@@ -237,6 +236,7 @@ export default function HomeClient() {
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 min-h-screen -z-10 bg-gradient-to-br from-sky-100/30 via-white to-emerald-100/30"
           />
+        <Container>
           <MotionDiv variants={fadeUp}>
             <SectionHeading
               eyebrow="FAQ"
@@ -248,8 +248,8 @@ export default function HomeClient() {
           <MotionDiv variants={fadeUp}>
             <FAQ />
           </MotionDiv>
-        </MotionSection>
-      </Container>
+        </Container>
+      </MotionSection>
     </div>
   );
 }
