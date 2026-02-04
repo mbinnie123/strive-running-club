@@ -89,7 +89,7 @@ export default function HomeClient() {
               <img
                 src="/strive-running-club-glasgow-logo.svg"
                 alt="Strive Running Club Glasgow"
-                className="h-12 w-auto opacity-100 sm:h-16 md:h-24 lg:h-28"
+                className="h-25 w-auto opacity-100 sm:h-16 md:h-24 lg:h-28"
               />
             </div>
 
