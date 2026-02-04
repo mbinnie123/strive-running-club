@@ -38,12 +38,14 @@ export default function Button({
 
   const classes = cn(base, variants[variant], className);
 
+  const dotColor = variant === "secondary" ? "bg-sky-400" : "bg-white/70";
+
   // LINK BUTTON
   if (href) {
     return (
       <Link href={href} className={classes}>
         {children}
-        <span className="h-1.5 w-1.5 rounded-full bg-white/70 transition group-hover:scale-125" />
+        <span className={cn("h-1.5 w-1.5 rounded-full transition group-hover:scale-125", dotColor)} />
       </Link>
     );
   }
@@ -52,7 +54,7 @@ export default function Button({
   return (
     <button type={type ?? "button"} onClick={onClick} className={classes}>
       {children}
-      <span className="h-1.5 w-1.5 rounded-full bg-white/70 transition group-hover:scale-125" />
+      <span className={cn("h-1.5 w-1.5 rounded-full transition group-hover:scale-125", dotColor)} />
     </button>
   );
 }
