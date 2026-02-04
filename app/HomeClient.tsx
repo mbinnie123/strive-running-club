@@ -13,10 +13,24 @@ import { MotionDiv, MotionSection, fadeUp, stagger } from "@/components/Motion";
 
 export default function HomeClient() {
   return (
-    <div>
+    <div className="relative overflow-hidden">
+      {/* SUBTLE BACKGROUND BLOBS (global) */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        {/* Top / Hero */}
+        <div className="absolute -top-40 -left-32 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-white/60 via-sky-100/50 to-transparent blur-3xl opacity-50 md:h-[720px] md:w-[720px]" />
+        <div className="absolute -top-48 -right-40 h-[520px] w-[520px] rounded-full bg-gradient-to-bl from-white/60 via-emerald-100/45 to-transparent blur-3xl opacity-45 md:h-[760px] md:w-[760px]" />
+
+        {/* Mid sections */}
+        <div className="absolute top-[28%] left-[10%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-white/55 via-indigo-100/40 to-transparent blur-3xl opacity-35 md:h-[780px] md:w-[780px]" />
+        <div className="absolute top-[46%] right-[8%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-white/55 via-rose-100/35 to-transparent blur-3xl opacity-30 md:h-[760px] md:w-[760px]" />
+
+        {/* Lower sections */}
+        <div className="absolute top-[68%] left-[18%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-white/55 via-amber-100/35 to-transparent blur-3xl opacity-28 md:h-[820px] md:w-[820px]" />
+        <div className="absolute top-[84%] right-[16%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-white/55 via-sky-100/35 to-transparent blur-3xl opacity-25 md:h-[820px] md:w-[820px]" />
+      </div>
       {/* HERO */}
       <Container>
-        <MotionSection initial="hidden" animate="show" variants={stagger} className="pt-14">
+        <MotionSection initial="hidden" animate="show" variants={stagger} className="pt-14 relative overflow-hidden">
           <MotionDiv variants={fadeUp} className="flex flex-wrap gap-2">
             <Badge>Weekly group runs</Badge>
             <Badge>Structured sessions</Badge>
@@ -24,13 +38,19 @@ export default function HomeClient() {
           </MotionDiv>
 
           <MotionDiv variants={fadeUp} className="mt-6">
-            <h1 className="text-4xl font-semibold tracking-tight md:text-6xl">
-              {site.tagline}
+            <h1 className="text-4xl font-semibold tracking-tight text-white md:text-6xl">
+              <span className="relative inline-block">
+                {site.tagline}
+                <span
+                  aria-hidden="true"
+                  className="absolute -bottom-2 left-0 h-2 w-full rounded-full bg-gradient-to-r from-emerald-300/70 via-sky-300/60 to-transparent"
+                />
+              </span>
             </h1>
 
             {/* NOTE: your copy still uses dark-theme classes below.
                If you’ve moved to white/blue theme, swap text colours later. */}
-            <p className="mt-5 max-w-2xl text-black/70 md:text-lg">
+            <p className="mt-5 max-w-2xl text-white/70 md:text-lg">
               A modern running club built on structure and support — show up, follow the plan,
               and watch the progress stack up.
             </p>
@@ -39,8 +59,15 @@ export default function HomeClient() {
               <Button href="/membership" variant="primary">Join the club</Button>
               <Button href="/runs" variant="secondary">View weekly runs</Button>
             </div>
+            <div className="mt-6 flex justify-center">
+              <img
+                src="/strive-running-club-glasgow-logo.svg"
+                alt="Strive Running Club Glasgow"
+                className="h-20 w-auto opacity-100 sm:h-30 md:h-40"
+              />
+            </div>
 
-            <div className="mt-10">
+            <div className="mt-10 text-white">
               <Stats />
             </div>
           </MotionDiv>
@@ -48,7 +75,7 @@ export default function HomeClient() {
           {/* HERO PANEL */}
           <MotionDiv
             variants={fadeUp}
-            className="noise mt-10 overflow-hidden rounded-[28px] border border-blue-100 bg-white"
+            className="noise mt-10 overflow-hidden rounded-[28px] border border-black/5 bg-white/80 backdrop-blur-md shadow-[0_22px_60px_rgba(0,0,0,0.10)]"
           >
             <div className="grid gap-4 p-6 md:grid-cols-3 md:p-8">
               <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-5">
@@ -74,6 +101,16 @@ export default function HomeClient() {
               </div>
             </div>
           </MotionDiv>
+
+          {/* HERO BACKGROUND DECOR */}
+          <div className="pointer-events-none absolute top-0 right-0 -z-10 w-[420px] max-w-[60%] md:w-[520px]">
+            <img
+              src="/strive-running-club-park.svg"
+              alt=""
+              aria-hidden="true"
+              className="w-full opacity-20 mix-blend-multiply"
+            />
+          </div>
         </MotionSection>
       </Container>
 
@@ -178,7 +215,7 @@ export default function HomeClient() {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
-          className="pb-20"
+          className=""
         >
           <MotionDiv variants={fadeUp}>
             <SectionHeading

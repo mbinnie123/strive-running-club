@@ -1,13 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 html, body {
@@ -16,10 +14,11 @@ html, body {
 
 body {
   background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(255,255,255,0.10), transparent 55%),
-    radial-gradient(900px 520px at 85% 10%, rgba(255,255,255,0.06), transparent 55%),
-    radial-gradient(1000px 700px at 50% 110%, rgba(255,255,255,0.05), transparent 60%),
-    #000;
+    radial-gradient(1200px 600px at 20% -10%, rgba(0,0,0,0.04), transparent 55%),
+    radial-gradient(900px 520px at 85% 10%, rgba(0,0,0,0.03), transparent 55%),
+    radial-gradient(1000px 700px at 50% 110%, rgba(0,0,0,0.025), transparent 60%),
+    #ffffff;
+  color: #000000;
 }
 
 .noise {
@@ -31,8 +30,8 @@ body {
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.14'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-  opacity: .25;
+  mix-blend-mode: multiply;
+  opacity: .12;
   border-radius: inherit;
 }
 

@@ -22,7 +22,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 min-h-[220px] mb-16 [contain:layout_paint]">
       {faqs.map((f, idx) => {
         const isOpen = open === idx;
         return (
@@ -30,11 +30,11 @@ export default function FAQ() {
             key={f.q}
             onClick={() => setOpen(isOpen ? null : idx)}
             className={cn(
-              "w-full rounded-3xl border border-white/10 bg-white/[0.03] p-5 text-left transition",
+              "w-full rounded-3xl border border-white/10 bg-white/[0.03] text-left transition",
               "hover:bg-white/[0.05]"
             )}
           >
-            <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center justify-between gap-4 px-5 py-5">
               <p className="font-medium text-white">{f.q}</p>
               <span
                 className={cn(
@@ -47,12 +47,12 @@ export default function FAQ() {
             </div>
             <div
               className={cn(
-                "grid transition-[grid-template-rows,opacity] duration-300",
+                "grid transform-gpu transition-[grid-template-rows,opacity] duration-300",
                 isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
               )}
             >
-              <div className="overflow-hidden">
-                <p className="mt-3 text-sm text-white/70">{f.a}</p>
+              <div className="overflow-hidden px-5">
+                <p className="text-sm text-white/70">{f.a}</p>
               </div>
             </div>
           </button>

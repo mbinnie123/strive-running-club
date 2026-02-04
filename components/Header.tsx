@@ -9,9 +9,11 @@ export default function Header() {
       <Container>
         <div className="flex items-center justify-between py-4">
           <Link href="/" className="group inline-flex items-center gap-3">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5">
-              <span className="h-2.5 w-2.5 rounded-full bg-white/70 transition group-hover:scale-110" />
-            </span>
+            <img
+              src="/strive-running-club-glasgow-logo.svg"
+              alt="Strive Running Club Glasgow"
+              className="h-25 w-25 object-contain"
+            />
             <div className="leading-tight">
               <div className="font-semibold tracking-tight">{site.name}</div>
               <div className="text-xs text-white/60">{site.city}</div>
