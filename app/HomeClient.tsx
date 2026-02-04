@@ -17,16 +17,16 @@ export default function HomeClient() {
       {/* SUBTLE BACKGROUND BLOBS (global) */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         {/* Top / Hero */}
-        <div className="absolute -top-40 -left-32 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-white/60 via-sky-100/50 to-transparent blur-3xl opacity-50 md:h-[720px] md:w-[720px]" />
-        <div className="absolute -top-48 -right-40 h-[520px] w-[520px] rounded-full bg-gradient-to-bl from-white/60 via-emerald-100/45 to-transparent blur-3xl opacity-45 md:h-[760px] md:w-[760px]" />
+        <div className="absolute -top-40 -left-32 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-200/60 via-sky-100/50 to-transparent blur-3xl opacity-40 md:h-[720px] md:w-[720px]" />
+        <div className="absolute -top-48 -right-40 h-[520px] w-[520px] rounded-full bg-gradient-to-bl from-sky-200/55 via-cyan-100/45 to-transparent blur-3xl opacity-38 md:h-[760px] md:w-[760px]" />
 
         {/* Mid sections */}
-        <div className="absolute top-[28%] left-[10%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-white/55 via-indigo-100/40 to-transparent blur-3xl opacity-35 md:h-[780px] md:w-[780px]" />
-        <div className="absolute top-[46%] right-[8%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-white/55 via-rose-100/35 to-transparent blur-3xl opacity-30 md:h-[760px] md:w-[760px]" />
+        <div className="absolute top-[28%] left-[10%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-200/50 via-blue-100/40 to-transparent blur-3xl opacity-32 md:h-[780px] md:w-[780px]" />
+        <div className="absolute top-[46%] right-[8%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-200/45 via-cyan-100/35 to-transparent blur-3xl opacity-30 md:h-[760px] md:w-[760px]" />
 
         {/* Lower sections */}
-        <div className="absolute top-[68%] left-[18%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-white/55 via-amber-100/35 to-transparent blur-3xl opacity-28 md:h-[820px] md:w-[820px]" />
-        <div className="absolute top-[84%] right-[16%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-white/55 via-sky-100/35 to-transparent blur-3xl opacity-25 md:h-[820px] md:w-[820px]" />
+        <div className="absolute top-[68%] left-[18%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-200/45 via-blue-100/35 to-transparent blur-3xl opacity-28 md:h-[820px] md:w-[820px]" />
+        <div className="absolute top-[84%] right-[16%] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-sky-200/40 via-cyan-100/30 to-transparent blur-3xl opacity-26 md:h-[820px] md:w-[820px]" />
       </div>
       {/* HERO */}
       <Container>
