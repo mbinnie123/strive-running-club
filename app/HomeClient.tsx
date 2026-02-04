@@ -13,7 +13,7 @@ import { MotionDiv, MotionSection, fadeUp, stagger } from "@/components/Motion";
 
 export default function HomeClient() {
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden text-black">
       {/* SUBTLE BACKGROUND BLOBS (global) */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         {/* Top / Hero */}
@@ -38,7 +38,7 @@ export default function HomeClient() {
           </MotionDiv>
 
           <MotionDiv variants={fadeUp} className="mt-6">
-            <h1 className="text-4xl font-semibold tracking-tight text-white md:text-6xl">
+            <h1 className="text-4xl font-semibold tracking-tight text-black md:text-6xl">
               <span className="relative inline-block">
                 {site.tagline}
                 <span
@@ -50,7 +50,7 @@ export default function HomeClient() {
 
             {/* NOTE: your copy still uses dark-theme classes below.
                If you’ve moved to white/blue theme, swap text colours later. */}
-            <p className="mt-5 max-w-2xl text-white/70 md:text-lg">
+            <p className="mt-5 max-w-2xl text-black/70 md:text-lg">
               A modern running club built on structure and support — show up, follow the plan,
               and watch the progress stack up.
             </p>
@@ -63,11 +63,11 @@ export default function HomeClient() {
               <img
                 src="/strive-running-club-glasgow-logo.svg"
                 alt="Strive Running Club Glasgow"
-                className="h-20 w-auto opacity-100 sm:h-30 md:h-40"
+                className="h-12 w-auto opacity-100 sm:h-16 md:h-24 lg:h-28"
               />
             </div>
 
-            <div className="mt-10 text-white">
+            <div className="mt-10 text-black">
               <Stats />
             </div>
           </MotionDiv>
