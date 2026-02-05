@@ -165,8 +165,32 @@ export default function HomeClient() {
           {/* Section tint (very light so global blobs stay continuous) */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-sky-100/15 via-transparent to-emerald-100/15"
+            className="pointer-events-none absolute inset-0 -z-20 bg-gradient-to-br from-sky-100/15 via-transparent to-emerald-100/15"
           />
+
+          {/* Hero BG Image (responsive) */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[340px] w-full opacity-55 md:inset-0 md:h-auto md:w-full"
+            style={{
+              maskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, black 80%, transparent 100%)",
+            }}
+          >
+            {/* Backfill gradient so 'contain' on mobile doesn't leave awkward empty space */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-sky-100/35 via-white/10 to-emerald-100/25" />
+
+            {/* Pale green/blue fade from left (responsive overlay) */}
+            <div className="absolute inset-0 z-20 bg-gradient-to-r from-emerald-50/80 via-sky-50/60 to-transparent" />
+
+            {/* Image: contain on mobile, cover on larger screens */}
+            <img
+              src="/strive-running-club.jpg"
+              alt=""
+              className="relative z-10 h-full w-full object-cover object-top md:object-cover md:object-center"
+            />
+          </div>
+
         <Container>
           <MotionDiv variants={fadeUp} className="flex flex-wrap gap-2">
             <Badge>Weekly group runs</Badge>
@@ -241,12 +265,12 @@ export default function HomeClient() {
           </MotionDiv>
 
           {/* HERO BACKGROUND DECOR */}
-          <div className="pointer-events-none absolute top-0 right-0 -z-10 w-[420px] max-w-[60%] md:w-[520px]">
+          <div className="pointer-events-none absolute top-0 right-0 -z-5 w-[420px] max-w-[60%] md:bottom-60 md:top-auto md:w-[520px]">
             <img
               src="/strive-running-club-park.svg"
               alt=""
               aria-hidden="true"
-              className="w-full opacity-25 mix-blend-multiply"
+              className="w-full opacity-20"
             />
           </div>
         </Container>
