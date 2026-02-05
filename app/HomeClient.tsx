@@ -124,13 +124,13 @@ import { MotionDiv, MotionSection, fadeUp, stagger } from "@/components/Motion";
 export default function HomeClient() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 50,
+    damping: 20,
     restDelta: 0.001,
   });
 
   return (
-    <div className="relative overflow-x-clip text-black">
+    <div className="relative min-h-screen overflow-x-clip pb-24 text-black">
       {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 z-[100] h-1 bg-blue-600 origin-left"
@@ -138,25 +138,21 @@ export default function HomeClient() {
       />
 
       {/* GLOBAL BACKGROUND (continuous, bleeding through all sections) */}
-      <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         {/* Base wash to keep the page cohesive */}
-        <div className="absolute inset-0 bg-gradient-to-b from-sky-50 via-white to-emerald-50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-50 to-emerald-50" />
 
         {/* Big soft blobs that overlap vertically so sections feel connected */}
-        <div className="absolute -top-56 left-[-20%] h-[780px] w-[780px] rounded-full bg-gradient-to-br from-sky-300/70 via-sky-200/50 to-transparent blur-3xl opacity-70" />
-        <div className="absolute top-[-120px] right-[-18%] h-[820px] w-[820px] rounded-full bg-gradient-to-bl from-cyan-300/65 via-sky-200/45 to-transparent blur-3xl opacity-70" />
-
-        <div className="absolute top-[18%] left-[-12%] h-[900px] w-[900px] rounded-full bg-gradient-to-br from-sky-300/60 via-blue-200/45 to-transparent blur-3xl opacity-65" />
-        <div className="absolute top-[36%] right-[-14%] h-[920px] w-[920px] rounded-full bg-gradient-to-br from-emerald-300/50 via-cyan-200/40 to-transparent blur-3xl opacity-60" />
-
-        <div className="absolute top-[58%] left-[-16%] h-[980px] w-[980px] rounded-full bg-gradient-to-br from-cyan-300/55 via-sky-200/40 to-transparent blur-3xl opacity-60" />
-        <div className="absolute top-[78%] right-[-18%] h-[980px] w-[980px] rounded-full bg-gradient-to-br from-emerald-300/45 via-sky-200/35 to-transparent blur-3xl opacity-55" />
+        <div className="absolute -top-[200px] left-[-200px] h-[800px] w-[800px] rounded-full bg-gradient-to-br from-sky-200/60 via-blue-100/40 to-transparent blur-3xl" />
+        <div className="absolute top-[20%] right-[-200px] h-[800px] w-[800px] rounded-full bg-gradient-to-bl from-cyan-200/60 via-sky-100/40 to-transparent blur-3xl" />
+        <div className="absolute top-[50%] left-[-200px] h-[800px] w-[800px] rounded-full bg-gradient-to-br from-blue-200/50 via-indigo-100/40 to-transparent blur-3xl" />
+        <div className="absolute bottom-[-200px] right-[-200px] h-[800px] w-[800px] rounded-full bg-gradient-to-br from-emerald-200/50 via-teal-100/40 to-transparent blur-3xl" />
 
         {/* A faint diagonal sheen to help everything blend */}
         <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-sky-100/25 to-white/0 mix-blend-multiply" />
       </div>
 
-      <div className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none">
+      <div className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none transform-gpu">
         <nav className="pointer-events-auto inline-flex gap-1 rounded-full border border-black/5 bg-white/90 p-1.5 shadow-sm backdrop-blur-md">
           <a href="#approach" className="rounded-full px-4 py-1.5 text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black">Approach</a>
           <a href="#week" className="rounded-full px-4 py-1.5 text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black">Schedule</a>
@@ -255,7 +251,10 @@ export default function HomeClient() {
           </div>
         </Container>
       </MotionSection>
-      <SectionDivider />
+      <div className="relative">
+        <div aria-hidden="true" className="absolute left-1/2 top-1/2 -z-10 h-48 w-[500px] -translate-x-1/2 -translate-y-1/2 bg-blue-500/40 blur-[80px]" />
+        <SectionDivider />
+      </div>
 
       {/* MARQUEE */}
       <Container>
@@ -298,7 +297,10 @@ export default function HomeClient() {
               <Card title="Good vibes, no ego" body="Supportive culture — we train hard and enjoy it." />
             </MotionDiv>
           </div>
-           <SectionDivider />
+          <div className="relative mt-16">
+            <div aria-hidden="true" className="absolute left-1/2 top-1/2 -z-10 h-48 w-[500px] -translate-x-1/2 -translate-y-1/2 bg-blue-500/40 blur-[80px]" />
+            <SectionDivider />
+          </div>
         </Container>
       </MotionSection>
 
@@ -363,7 +365,10 @@ export default function HomeClient() {
               </div>
             </div>
           </MotionDiv>
-           <SectionDivider />
+          <div className="relative mt-16">
+            <div aria-hidden="true" className="absolute left-1/2 top-1/2 -z-10 h-48 w-[500px] -translate-x-1/2 -translate-y-1/2 bg-blue-500/40 blur-[80px]" />
+            <SectionDivider />
+          </div>
         </Container>
       </MotionSection>
 

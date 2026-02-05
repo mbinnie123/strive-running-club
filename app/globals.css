@@ -12,9 +12,13 @@
 
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
+  min-height: 100vh;
+  overflow-x: hidden;
   background:
     radial-gradient(1200px 600px at 20% -10%, rgba(0,0,0,0.04), transparent 55%),
     radial-gradient(900px 520px at 85% 10%, rgba(0,0,0,0.03), transparent 55%),
