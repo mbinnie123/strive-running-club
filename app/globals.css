@@ -2,6 +2,8 @@
 
 :root {
   color-scheme: light;
+  --color-cyan-100: lab(95 -13.83 -6.85 / 0);
+  --color-emerald-100: lab(95 -17.08 5.64 / 0);
 }
 
 ::selection {

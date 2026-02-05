@@ -8,29 +8,10 @@ import SectionHeading from "@/components/SectionHeading";
 import Marquee from "@/components/Marquee";
 import FAQ from "@/components/FAQ";
 import Stats from "@/components/Stats";
+import SectionDivider from "@/components/SectionDivider";
 
 import { site } from "@/lib/site";
 import { MotionDiv, MotionSection, fadeUp, stagger } from "@/components/Motion";
-
-// Modern section divider component
-function SectionDivider() {
-  return (
-    <div aria-hidden="true" className="relative my-10">
-      {/* gradient line */}
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-sky-400/60 to-transparent" />
-
-      {/* soft glow behind centre */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-10 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-sky-200/70 via-emerald-200/60 to-blue-200/70 blur-xl opacity-80" />
-
-      {/* brand-colour centre dots */}
-      <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2">
-        <span className="h-2 w-2 rounded-full bg-sky-500/70" />
-        <span className="h-2 w-2 rounded-full bg-emerald-500/60" />
-        <span className="h-2 w-2 rounded-full bg-blue-500/70" />
-      </div>
-    </div>
-  );
-}
 
 export default function HomeClient() {
   return (
@@ -181,9 +162,9 @@ export default function HomeClient() {
               <Card title="Good vibes, no ego" body="Supportive culture — we train hard and enjoy it." />
             </MotionDiv>
           </div>
+           <SectionDivider />
         </Container>
       </MotionSection>
-      <SectionDivider />
 
       {/* THIS WEEK */}
       <MotionSection
@@ -191,7 +172,7 @@ export default function HomeClient() {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
-          className="py-14 relative overflow-hidden"
+          className="relative overflow-hidden"
         >
           {/* Section gradient */}
           <div
@@ -243,9 +224,9 @@ export default function HomeClient() {
               </div>
             </div>
           </MotionDiv>
+           <SectionDivider />
         </Container>
       </MotionSection>
-      <SectionDivider />
 
       {/* FAQ */}
       <MotionSection
