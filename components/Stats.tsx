@@ -44,11 +44,11 @@ export default function Stats() {
   ];
 
   return (
-    <div className="grid gap-3 rounded-3xl border border-black/10 bg-black/[0.03] p-5 md:grid-cols-3">
+    <div className="grid gap-3 rounded-3xl border border-blue-100 bg-white/85 p-5 shadow-[0_14px_36px_rgba(14,59,122,0.07)] backdrop-blur-sm md:grid-cols-3">
       {stats.map((s) => (
-        <div key={s.k} className="rounded-2xl border border-black/10 bg-black/5 p-4">
-          <p className="text-xs text-black/60">{s.k}</p>
-          <p className="mt-1 text-xl font-semibold text-black">
+        <div key={s.k} className="rounded-2xl border border-blue-100 bg-blue-50/40 p-4">
+          <p className="text-xs text-slate-500">{s.k}</p>
+          <p className="mt-1 text-xl font-semibold text-slate-900">
             <AnimatedNumber value={s.v} />
           </p>
         </div>

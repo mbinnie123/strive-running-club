@@ -61,7 +61,7 @@ export default function NextRunCountdown() {
   if (!timeLeft) return null;
 
   return (
-    <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700">
+    <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-blue-200 bg-white px-4 py-2 text-sm font-semibold text-blue-700 shadow-[0_10px_20px_rgba(23,104,245,0.12)]">
       <span className="relative flex h-2 w-2">
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
         <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>

@@ -4,29 +4,21 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import Button from "@/components/Button";
 import { site } from "@/lib/site";
-import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function Header() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
   return (
-    <header className="sticky top-0 z-[100] border-b border-white/10 bg-black/90 backdrop-blur-md">
+    <header className="fixed top-0 left-0 right-0 z-[100] border-b border-blue-100/80 bg-white/80 backdrop-blur-xl">
       <Container>
         <div className="flex items-center justify-between py-4">
           <Link href="/" className="group inline-flex items-center gap-3">
             <img
               src="/strive-running-club-glasgow-logo.svg"
               alt="Strive Running Club Glasgow"
-              className="h-25 w-25 object-contain"
+              className="h-11 w-11 rounded-2xl border border-blue-100 bg-white object-contain p-1 shadow-[0_10px_26px_rgba(23,104,245,0.12)]"
             />
             <div className="leading-tight">
-              <div className="font-semibold tracking-tight text-white">{site.name}</div>
-              <div className="text-xs text-white/70">{site.city}</div>
+              <div className="font-semibold tracking-tight text-slate-900">{site.name}</div>
+              <div className="text-xs text-slate-500">{site.city}</div>
             </div>
           </Link>
 
@@ -35,7 +27,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm text-white/80 transition hover:text-white"
+                className="rounded-full px-3 py-1.5 text-sm text-slate-600 transition hover:bg-blue-50 hover:text-slate-900"
               >
                 {item.label}
               </Link>

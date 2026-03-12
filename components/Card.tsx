@@ -41,14 +41,15 @@ export default function Card({
         animate={{ rotateX: rotation.x, rotateY: rotation.y }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
         className={cn(
-          "rounded-3xl border border-black/10 bg-black/[0.04] p-6 shadow-[0_1px_0_rgba(0,0,0,0.06)]",
-          "transition hover:bg-black/[0.06]",
+          "rounded-3xl border border-blue-100 bg-white/90 p-6 shadow-[0_20px_44px_rgba(14,59,122,0.08)]",
+          "transition duration-200 hover:-translate-y-0.5 hover:bg-white",
           className
         )}
       >
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-16 rounded-t-3xl bg-gradient-to-b from-cyan-50/90 to-transparent" />
         <div style={{ transform: "translateZ(20px)" }}>
-          <p className="text-sm text-black/60">{title}</p>
-          <p className="mt-2 text-lg font-medium text-black">{body}</p>
+          <p className="text-sm font-medium text-blue-700">{title}</p>
+          <p className="mt-2 text-lg font-medium text-slate-900">{body}</p>
         </div>
       </motion.div>
     </div>

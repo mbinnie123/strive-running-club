@@ -80,7 +80,7 @@ function WeatherWidget() {
 
   if (loading) {
     return (
-      <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-sm text-black/70">
+      <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-3 py-1 text-sm text-slate-600">
         <span className="h-2 w-2 animate-pulse rounded-full bg-blue-400" />
         Glasgow weather…
       </span>
@@ -89,7 +89,7 @@ function WeatherWidget() {
 
   if (temp == null || code == null) {
     return (
-      <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-sm text-black/70">
+      <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-3 py-1 text-sm text-slate-600">
         Glasgow weather unavailable
       </span>
     );
@@ -100,18 +100,18 @@ function WeatherWidget() {
   const roundedWind = wind == null ? null : Math.round(wind);
 
   return (
-    <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-sm text-black/80">
+    <span className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white/80 px-3 py-1 text-sm text-slate-700">
       <span className="h-2 w-2 rounded-full bg-sky-400" />
       <span className="font-medium">Glasgow</span>
       <span aria-hidden="true">·</span>
       <span>{roundedTemp}°C</span>
-      <span className="text-black/60">{label}</span>
+      <span className="text-slate-500">{label}</span>
       {roundedWind != null && (
         <>
-          <span aria-hidden="true" className="text-black/30">
+          <span aria-hidden="true" className="text-slate-300">
             ·
           </span>
-          <span className="text-black/60">{roundedWind} km/h</span>
+          <span className="text-slate-500">{roundedWind} km/h</span>
         </>
       )}
     </span>
@@ -130,10 +130,10 @@ export default function HomeClient() {
   });
 
   return (
-    <div className="relative min-h-screen overflow-x-clip pb-24 text-black">
+    <div className="relative min-h-screen overflow-x-clip pb-24 text-slate-900">
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 z-[100] h-1 bg-blue-600 origin-left"
+        className="fixed top-0 left-0 right-0 z-[100] h-1 origin-left bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500"
         style={{ scaleX }}
       />
 
@@ -153,10 +153,10 @@ export default function HomeClient() {
       </div>
 
       <div className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none transform-gpu">
-        <nav className="pointer-events-auto inline-flex gap-1 rounded-full border border-black/5 bg-white/90 p-1.5 shadow-sm backdrop-blur-md">
-          <a href="#approach" className="rounded-full px-4 py-1.5 text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black">Approach</a>
-          <a href="#week" className="rounded-full px-4 py-1.5 text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black">Schedule</a>
-          <a href="#faq" className="rounded-full px-4 py-1.5 text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black">FAQ</a>
+        <nav className="pointer-events-auto inline-flex gap-1 rounded-full border border-blue-100 bg-white/85 p-1.5 shadow-[0_10px_22px_rgba(14,59,122,0.08)] backdrop-blur-xl">
+          <a href="#approach" className="rounded-full px-4 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-slate-900">Approach</a>
+          <a href="#week" className="rounded-full px-4 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-slate-900">Schedule</a>
+          <a href="#faq" className="rounded-full px-4 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-slate-900">FAQ</a>
         </nav>
       </div>
 
@@ -200,7 +200,7 @@ export default function HomeClient() {
           </MotionDiv>
 
           <MotionDiv variants={fadeUp} className="mt-6">
-            <h1 className="text-4xl font-semibold tracking-tight text-black md:text-6xl">
+            <h1 className="text-4xl font-semibold tracking-tight text-slate-900 md:text-6xl">
               <span className="relative inline-block">
                 {site.tagline}
                 <span
@@ -212,7 +212,7 @@ export default function HomeClient() {
 
             {/* NOTE: your copy still uses dark-theme classes below.
                If you’ve moved to white/blue theme, swap text colours later. */}
-            <p className="mt-5 max-w-2xl text-black md:text-lg">
+            <p className="mt-5 max-w-2xl text-slate-700 md:text-lg">
               A modern running club built on structure and support — show up, follow the plan,
               and watch the progress stack up.
             </p>
@@ -221,7 +221,7 @@ export default function HomeClient() {
               <Button href="/membership" variant="primary">Join the club</Button>
               <Button href="/runs" variant="secondary">View weekly runs</Button>
             </div>
-            <div className="mt-6 flex justify-center">
+            <div className="mt-6 flex flex-col items-center justify-center gap-4">
               <img
                 src="/strive-running-club-glasgow-logo.svg"
                 alt="Strive Running Club Glasgow"
@@ -229,7 +229,7 @@ export default function HomeClient() {
               />
             </div>
 
-            <div className="mt-10 text-black">
+            <div className="mt-10">
               <Stats />
             </div>
           </MotionDiv>
@@ -242,22 +242,22 @@ export default function HomeClient() {
             <div className="grid gap-4 p-6 md:grid-cols-3 md:p-8">
               <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-5">
                 <p className="text-sm text-blue-700">Session types</p>
-                <p className="mt-2 text-lg font-medium text-black">Track · Tempo · Long runs</p>
-                <p className="mt-2 text-sm text-black/70">
+                <p className="mt-2 text-lg font-medium text-slate-900">Track · Tempo · Long runs</p>
+                <p className="mt-2 text-sm text-slate-600">
                   Effort-based options so everyone trains together.
                 </p>
               </div>
               <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-5">
                 <p className="text-sm text-blue-700">Coached structure</p>
-                <p className="mt-2 text-lg font-medium text-black">Warm-up → Work → Cooldown</p>
-                <p className="mt-2 text-sm text-black/70">
+                <p className="mt-2 text-lg font-medium text-slate-900">Warm-up → Work → Cooldown</p>
+                <p className="mt-2 text-sm text-slate-600">
                   No guesswork. Just show up and run.
                 </p>
               </div>
               <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-5">
                 <p className="text-sm text-blue-700">Community</p>
-                <p className="mt-2 text-lg font-medium text-black">Support + accountability</p>
-                <p className="mt-2 text-sm text-black/70">
+                <p className="mt-2 text-lg font-medium text-slate-900">Support + accountability</p>
+                <p className="mt-2 text-sm text-slate-600">
                   Consistency feels easier when you’re not doing it alone.
                 </p>
               </div>
@@ -346,40 +346,40 @@ export default function HomeClient() {
           <MotionDiv variants={fadeUp} className="grid gap-4 md:grid-cols-2">
             <div className="noise rounded-3xl border border-blue-100 bg-white p-7">
               <p className="text-xs uppercase tracking-[0.18em] text-blue-700">This week in Glasgow</p>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-black">Three simple pillars</h3>
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">Three simple pillars</h3>
 
               <NextRunCountdown />
 
-              <ul className="mt-5 space-y-3 text-black">
+              <ul className="mt-5 space-y-3 text-slate-900">
                 <li className="flex items-center justify-between rounded-2xl border border-blue-100 bg-blue-50/40 px-4 py-3">
-                  <span>Mon · Easy social</span><span className="text-black/70">45 mins</span>
+                  <span>Mon · Easy social</span><span className="text-slate-500">45 mins</span>
                 </li>
                 <li className="flex items-center justify-between rounded-2xl border border-blue-100 bg-blue-50/40 px-4 py-3">
-                  <span>Wed · Session night</span><span className="text-black/70">Intervals</span>
+                  <span>Wed · Session night</span><span className="text-slate-500">Intervals</span>
                 </li>
                 <li className="flex items-center justify-between rounded-2xl border border-blue-100 bg-blue-50/40 px-4 py-3">
-                  <span>Sat · Long run + coffee</span><span className="text-black/70">Social</span>
+                  <span>Sat · Long run + coffee</span><span className="text-slate-500">Social</span>
                 </li>
               </ul>
 
-              <p className="mt-4 text-sm text-black/70">
+              <p className="mt-4 text-sm text-slate-500">
                 Later we can wire this to a Google Sheet / CMS so you can update it quickly.
               </p>
             </div>
 
             <div className="rounded-3xl border border-blue-100 bg-white p-7">
               <p className="text-xs uppercase tracking-[0.18em] text-blue-700">Join</p>
-              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-black">Ready to start?</h3>
-              <p className="mt-4 text-black">Pick a plan, get the schedule, and turn up. We’ll do the rest.</p>
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-slate-900">Ready to start?</h3>
+              <p className="mt-4 text-slate-700">Pick a plan, get the schedule, and turn up. We’ll do the rest.</p>
 
               <div className="mt-7 grid gap-3">
                 <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-4">
-                  <p className="text-sm font-medium text-black">Club Membership</p>
-                  <p className="mt-1 text-sm text-black/70">Group sessions + community access.</p>
+                  <p className="text-sm font-medium text-slate-900">Club Membership</p>
+                  <p className="mt-1 text-sm text-slate-600">Group sessions + community access.</p>
                 </div>
                 <div className="rounded-2xl border border-blue-100 bg-blue-50/40 p-4">
-                  <p className="text-sm font-medium text-black">Coached Plan</p>
-                  <p className="mt-1 text-sm text-black/70">Extra structure and accountability.</p>
+                  <p className="text-sm font-medium text-slate-900">Coached Plan</p>
+                  <p className="mt-1 text-sm text-slate-600">Extra structure and accountability.</p>
                 </div>
               </div>
 
@@ -403,7 +403,7 @@ export default function HomeClient() {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
-          className="relative scroll-mt-36"
+          className="relative scroll-mt-36 pb-28"
         >
           {/* Section tint */}
           <div

@@ -22,7 +22,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="space-y-3 min-h-[220px] mb-16 [contain:layout_paint]">
+    <div className="space-y-3 min-h-[220px] mb-16">
       {faqs.map((f, idx) => {
         const isOpen = open === idx;
         return (
@@ -30,15 +30,15 @@ export default function FAQ() {
             key={f.q}
             onClick={() => setOpen(isOpen ? null : idx)}
             className={cn(
-              "w-full rounded-3xl border border-black/10 bg-black/[0.03] text-left transition",
-              "hover:bg-black/[0.05]"
+              "w-full rounded-3xl border border-blue-100 bg-white/85 text-left shadow-[0_10px_24px_rgba(14,59,122,0.06)] transition",
+              "hover:-translate-y-0.5 hover:bg-white"
             )}
           >
             <div className="flex items-center justify-between gap-4 px-5 py-5">
-              <p className="font-medium text-black">{f.q}</p>
+              <p className="font-medium text-slate-900">{f.q}</p>
               <span
                 className={cn(
-                  "inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/10 bg-black/5 text-black/70 transition",
+                  "inline-flex h-8 w-8 items-center justify-center rounded-full border border-blue-100 bg-blue-50 text-blue-700 transition",
                   isOpen && "rotate-45"
                 )}
               >
@@ -52,7 +52,7 @@ export default function FAQ() {
               )}
             >
               <div className="overflow-hidden px-5">
-                <p className="text-sm text-black/70">{f.a}</p>
+                <p className="pb-5 text-sm text-slate-600">{f.a}</p>
               </div>
             </div>
           </button>

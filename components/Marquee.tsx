@@ -6,8 +6,8 @@ const items = ["Consistency", "Community", "Coaching", "Confidence", "Performanc
 
 export default function Marquee() {
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-black/[0.03]">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-transparent to-white opacity-80" />
+    <div className="relative overflow-hidden rounded-3xl border border-blue-100 bg-white/80 shadow-[0_14px_32px_rgba(14,59,122,0.07)]">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-blue-50 via-transparent to-blue-50 opacity-95" />
       <MotionDiv
         initial={{ x: 0 }}
         animate={{ x: "-50%" }}
@@ -17,7 +17,7 @@ export default function Marquee() {
         {[...items, ...items, ...items, ...items].map((t, i) => (
           <span
             key={i}
-            className="whitespace-nowrap rounded-full border border-black/10 bg-black/5 px-4 py-2 text-sm text-black/70"
+            className="whitespace-nowrap rounded-full border border-blue-100 bg-white/90 px-4 py-2 text-sm font-medium text-slate-700"
           >
             {t}
           </span>
