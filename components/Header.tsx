@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] border-b border-blue-100/80 bg-white/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-[100] border-b border-blue-100/80 bg-white/80 backdrop-blur-xl">
       <Container>
         <div className="flex items-center justify-between py-4">
           <Link href="/" className="group inline-flex items-center gap-3">

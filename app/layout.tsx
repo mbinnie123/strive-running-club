@@ -29,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-GB">
-      <body className={`${display.variable} ${body.variable} min-h-screen overflow-x-hidden bg-white pt-20 text-black antialiased`}>
+      <body className={`${display.variable} ${body.variable} min-h-screen overflow-x-hidden bg-white text-black antialiased`}>
         <Header />
         {children}
         <Footer />

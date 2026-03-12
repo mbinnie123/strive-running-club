@@ -152,14 +152,6 @@ export default function HomeClient() {
         <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-sky-100/25 to-white/0 mix-blend-multiply" />
       </div>
 
-      <div className="fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none transform-gpu">
-        <nav className="pointer-events-auto inline-flex gap-1 rounded-full border border-blue-100 bg-white/85 p-1.5 shadow-[0_10px_22px_rgba(14,59,122,0.08)] backdrop-blur-xl">
-          <a href="#approach" className="rounded-full px-4 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-slate-900">Approach</a>
-          <a href="#week" className="rounded-full px-4 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-slate-900">Schedule</a>
-          <a href="#faq" className="rounded-full px-4 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-slate-900">FAQ</a>
-        </nav>
-      </div>
-
       {/* HERO */}
       <MotionSection initial="hidden" animate="show" variants={stagger} className="pt-24 relative">
           {/* Section tint (very light so global blobs stay continuous) */}
@@ -197,6 +189,16 @@ export default function HomeClient() {
             <Badge>Structured sessions</Badge>
             <Badge>Glasgow community</Badge>
             <WeatherWidget />
+          </MotionDiv>
+
+          <MotionDiv variants={fadeUp} className="mt-6">
+            <div className="sticky top-24 z-40 flex justify-center md:justify-start">
+              <nav className="inline-flex gap-1 rounded-full border border-blue-100 bg-white/90 p-1.5 shadow-[0_10px_22px_rgba(14,59,122,0.08)] backdrop-blur-xl">
+                <a href="#approach" className="rounded-full px-4 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-slate-900">Approach</a>
+                <a href="#week" className="rounded-full px-4 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-slate-900">Schedule</a>
+                <a href="#faq" className="rounded-full px-4 py-1.5 text-sm font-medium text-slate-600 transition hover:bg-blue-50 hover:text-slate-900">FAQ</a>
+              </nav>
+            </div>
           </MotionDiv>
 
           <MotionDiv variants={fadeUp} className="mt-6">
