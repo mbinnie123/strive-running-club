@@ -4,7 +4,7 @@ import SessionCard from "@/components/SessionCard";
 
 export default function RunsPage() {
   return (
-    <div className="pb-24">
+    <div className="mt-16 md:mt-20 pb-24">
       <Container>
         <SectionHeading
           eyebrow="Runs"

@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 
 export default function MembershipPage() {
   return (
-    <div className="pb-24">
+    <div className="mt-16 md:mt-20 pb-24">
       <Container>
         <SectionHeading
           eyebrow="Membership"

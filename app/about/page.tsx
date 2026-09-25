@@ -5,7 +5,7 @@ import MediaGallery from "@/components/MediaGallery";
 
 export default function AboutPage() {
   return (
-    <div className="pb-24">
+    <div className="mt-16 md:mt-20 pb-24">
       <Container>
         <SectionHeading
           eyebrow="About"
