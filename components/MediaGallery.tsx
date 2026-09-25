@@ -130,7 +130,7 @@ export default function MediaGallery() {
             ) : (
               <div className="flex w-full items-center justify-center">
                 {/* Portrait container: width derived from viewport height to enforce vertical box */}
-                <div style={{ height: '80vh', width: '45vh' }} className="rounded-xl overflow-hidden bg-black">
+                <div style={{ height: '80vh', width: 'min(45vh, 90vw)' }} className="rounded-xl overflow-hidden bg-black">
                   <video
                     src={media[selectedIndex].src}
                     controls

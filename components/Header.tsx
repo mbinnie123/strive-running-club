@@ -7,9 +7,9 @@ import { site } from "@/lib/site";
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] w-full border-b border-blue-100/80 bg-white/80 backdrop-blur-xl">
+    <header className="fixed top-0 left-0 right-0 z-[100] w-full border-b border-blue-100/80 bg-white/80 backdrop-blur-xl h-16 md:h-20">
       <Container>
-        <div className="flex items-center justify-between py-4">
+        <div className="h-full flex items-center justify-between">
           <Link href="/" className="group inline-flex items-center gap-3">
             <img
               src="/strive-running-club-glasgow-logo.svg"
