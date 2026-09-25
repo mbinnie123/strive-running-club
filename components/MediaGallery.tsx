@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 
 const media = [
@@ -19,6 +19,18 @@ const media = [
 
 export default function MediaGallery() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const onKey = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape") setSelectedIndex(null);
+  }, []);
+
+  useEffect(() => {
+    if (selectedIndex !== null) {
+      window.addEventListener("keydown", onKey);
+      return () => window.removeEventListener("keydown", onKey);
+    }
+    return;
+  }, [selectedIndex, onKey]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -59,7 +71,11 @@ export default function MediaGallery() {
             <div className="absolute inset-0 bg-gradient-to-br from-sky-200 to-blue-200 opacity-0 group-hover:opacity-100 transition duration-300 z-10" />
 
             {/* Media */}
-            <div className="relative pb-full aspect-square overflow-hidden bg-slate-100">
+            <div
+              className={`relative overflow-hidden bg-slate-100 ${
+                item.type === "video" ? "aspect-[9/16]" : "aspect-square"
+              }`}
+            >
               {item.type === "image" ? (
                 <img
                   src={item.src}
@@ -70,6 +86,9 @@ export default function MediaGallery() {
                 <>
                   <video
                     src={item.src}
+                    muted
+                    playsInline
+                    preload="metadata"
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                   />
                   {/* Play Icon for Videos */}
@@ -100,7 +119,7 @@ export default function MediaGallery() {
           onClick={() => setSelectedIndex(null)}
         >
           <motion.div
-            className="relative max-h-[90vh] max-w-4xl w-full"
+            className="relative max-h-[90vh] max-w-4xl w-full flex items-center justify-center"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             onClick={(e) => e.stopPropagation()}
@@ -110,24 +129,24 @@ export default function MediaGallery() {
               <img
                 src={media[selectedIndex].src}
                 alt={media[selectedIndex].alt}
-                className="h-full w-full rounded-xl object-contain"
+                className="max-h-[80vh] w-full rounded-xl object-contain"
               />
             ) : (
               <video
                 src={media[selectedIndex].src}
                 controls
                 autoPlay
-                className="h-full w-full rounded-xl object-contain"
+                className="max-h-[80vh] w-full rounded-xl object-contain"
               />
             )}
 
-            {/* Close Button */}
+            {/* Close Button (visible inside modal) */}
             <button
               onClick={() => setSelectedIndex(null)}
-              className="absolute -top-12 right-0 text-white hover:text-blue-300 transition"
-              aria-label="Close"
+              className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition"
+              aria-label="Close gallery"
             >
-              <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
               </svg>
             </button>
@@ -137,7 +156,7 @@ export default function MediaGallery() {
               onClick={() =>
                 setSelectedIndex(selectedIndex === 0 ? media.length - 1 : selectedIndex - 1)
               }
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 text-white hover:text-blue-300 transition"
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-blue-300 transition"
               aria-label="Previous"
             >
               <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
@@ -149,7 +168,7 @@ export default function MediaGallery() {
               onClick={() =>
                 setSelectedIndex(selectedIndex === media.length - 1 ? 0 : selectedIndex + 1)
               }
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 text-white hover:text-blue-300 transition"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-blue-300 transition"
               aria-label="Next"
             >
               <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
