@@ -144,10 +144,10 @@ export default function MediaGallery() {
             {/* Close Button (visible inside modal) */}
             <button
               onClick={() => setSelectedIndex(null)}
-              className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition"
+              className="absolute top-4 right-4 z-60 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black shadow-md hover:bg-white/90 focus:outline-none"
               aria-label="Close gallery"
             >
-              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
                 <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
               </svg>
             </button>
