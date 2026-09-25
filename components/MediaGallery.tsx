@@ -71,11 +71,7 @@ export default function MediaGallery() {
             <div className="absolute inset-0 bg-gradient-to-br from-sky-200 to-blue-200 opacity-0 group-hover:opacity-100 transition duration-300 z-10" />
 
             {/* Media */}
-            <div
-              className={`relative overflow-hidden bg-slate-100 ${
-                item.type === "video" ? "aspect-[9/16]" : "aspect-square"
-              }`}
-            >
+            <div className="relative overflow-hidden bg-slate-100 aspect-square">
               {item.type === "image" ? (
                 <img
                   src={item.src}
