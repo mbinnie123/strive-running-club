@@ -217,7 +217,7 @@ export default function HomeClient() {
                If you’ve moved to white/blue theme, swap text colours later. */}
             <p className="mt-5 max-w-2xl text-slate-700 md:text-lg">
               A modern running club built on structure and support — show up, follow the plan,
-              and watch the progress stack up.
+              and watch the progress stack up!
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
