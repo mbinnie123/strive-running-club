@@ -85,6 +85,7 @@ export default function MembershipPage() {
             <li>Ask for baseline info (weight, height, age) and request a weekly progress update.</li>
           </ul>
         </div>
+        </div>
       </Container>
     </div>
   );

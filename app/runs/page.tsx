@@ -49,6 +49,7 @@ export default function RunsPage() {
             price="Membership"
           />
         </div>
+        </div>
       </Container>
     </div>
   );
