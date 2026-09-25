@@ -10,6 +10,7 @@ import FAQ from "@/components/FAQ";
 import Stats from "@/components/Stats";
 import SectionDivider from "@/components/SectionDivider";
 import NextRunCountdown from "@/components/NextRunCountdown";
+import MediaGallery from "@/components/MediaGallery";
 import { useEffect, useState } from "react";
 import { useScroll, useSpring, motion } from "framer-motion";
 function weatherLabelFromCode(code: number): string {
@@ -323,6 +324,18 @@ export default function HomeClient() {
               <Card title="Good vibes, no ego" body="Supportive culture — we train hard and enjoy it." />
             </MotionDiv>
           </div>
+
+          {/* Media Gallery Section */}
+          <MotionDiv variants={fadeUp} className="mt-16">
+            <h3 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl">
+              Not just a running club — we're a community
+            </h3>
+            <p className="mt-2 text-slate-600">See what Strive is really about</p>
+          </MotionDiv>
+
+          <MotionDiv variants={fadeUp} className="mt-8">
+            <MediaGallery />
+          </MotionDiv>
           <div className="relative mt-16">
             <div aria-hidden="true" className="absolute left-1/2 top-1/2 -z-10 h-48 w-[500px] -translate-x-1/2 -translate-y-1/2 bg-blue-500/40 blur-[80px]" />
             <SectionDivider />
