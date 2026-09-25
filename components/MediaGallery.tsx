@@ -132,12 +132,17 @@ export default function MediaGallery() {
                 className="max-h-[80vh] w-full rounded-xl object-contain"
               />
             ) : (
-              <video
-                src={media[selectedIndex].src}
-                controls
-                autoPlay
-                className="max-h-[80vh] w-full rounded-xl object-contain"
-              />
+              <div className="flex w-full items-center justify-center">
+                {/* Portrait container: width derived from viewport height to enforce vertical box */}
+                <div style={{ height: '80vh', width: '45vh' }} className="rounded-xl overflow-hidden bg-black">
+                  <video
+                    src={media[selectedIndex].src}
+                    controls
+                    autoPlay
+                    className="h-full w-full object-contain"
+                  />
+                </div>
+              </div>
             )}
 
             {/* Close Button (visible inside modal) */}
