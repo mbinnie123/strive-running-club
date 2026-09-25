@@ -16,25 +16,28 @@ export default function RunningClubPage() {
         />
 
         <div className="mt-8 grid gap-6 md:grid-cols-3">
-          <Card title="Who it's for" body="Runners who want structure, consistency and community — beginners welcome." />
-          <Card title="Where we run" body="Glasgow city centre and parks — meeting points vary by session (see sessions page)." />
-          <Card title="How it works" body="Book a session, turn up a little early, warm up together and follow the coach-led session." />
+          <Card title="Who it's for" body="Runners who want structure, consistency and community — beginners welcome. We divide runners by effort groups so you train with similar-paced teammates." />
+          <Card title="Where we run" body="Glasgow city centre, parks and local tracks. Meeting points vary by session — see the sessions page for exact locations and maps." />
+          <Card title="How it works" body="Book a session, arrive a little early, warm up with the group and follow the coach-led session. We offer guidance for goal setting and progression." />
         </div>
 
-        <div className="mt-10">
-          <h3 className="text-xl font-semibold">What to expect</h3>
-          <ul className="mt-3 list-inside list-disc text-slate-700">
-            <li>Structured warm-up, main set, and cooldown</li>
-            <li>Effort-based groups so everyone trains together</li>
-            <li>Post-session social and coffee on many runs</li>
-          </ul>
-        </div>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <div>
+            <h3 className="text-xl font-semibold">What to expect</h3>
+            <ul className="mt-3 list-inside list-disc text-slate-700">
+              <li>Structured warm-up, main set, and cooldown</li>
+              <li>Effort-based groups so everyone trains safely together</li>
+              <li>Coach feedback and progress tracking</li>
+              <li>Post-run social meetups</li>
+            </ul>
+          </div>
 
-        <div className="mt-10">
-          <h3 className="text-xl font-semibold">Pricing & How to join</h3>
-          <p className="mt-3 text-slate-700">We offer single-session drop-ins and membership plans. Head to membership to see current options and book.</p>
-          <div className="mt-4">
-            <Button href="/membership" variant="primary">See membership & book</Button>
+          <div>
+            <h3 className="text-xl font-semibold">Pricing & How to join</h3>
+            <p className="mt-3 text-slate-700">We offer drop-in sessions, block bookings and monthly membership. Students and key workers may be eligible for discounts. To join, pick a plan and book sessions via the sessions page.</p>
+            <div className="mt-4">
+              <Button href="/membership" variant="primary">See membership & book</Button>
+            </div>
           </div>
         </div>
 
