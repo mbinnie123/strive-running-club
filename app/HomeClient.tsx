@@ -295,7 +295,7 @@ export default function HomeClient() {
           id="approach"
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
+          viewport={{ once: true, amount: 0.05 }}
           variants={stagger}
           className="pb-6 relative scroll-mt-28 md:scroll-mt-36 lg:scroll-mt-40"
         >
