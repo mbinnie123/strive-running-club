@@ -297,7 +297,7 @@ export default function HomeClient() {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           variants={stagger}
-          className="pb-6 relative scroll-mt-36"
+          className="pb-6 relative scroll-mt-16 md:scroll-mt-20 lg:scroll-mt-24"
         >
           {/* Section tint */}
           <div
@@ -350,7 +350,7 @@ export default function HomeClient() {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
-          className="relative scroll-mt-36"
+          className="relative scroll-mt-16 md:scroll-mt-20 lg:scroll-mt-24"
         >
           {/* Section tint */}
           <div
