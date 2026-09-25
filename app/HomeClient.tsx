@@ -297,7 +297,7 @@ export default function HomeClient() {
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
           variants={stagger}
-          className="pb-6 relative scroll-mt-16 md:scroll-mt-20 lg:scroll-mt-24"
+          className="pb-6 relative scroll-mt-28 md:scroll-mt-36 lg:scroll-mt-40"
         >
           {/* Section tint */}
           <div
@@ -305,7 +305,7 @@ export default function HomeClient() {
             className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-sky-100/12 via-transparent to-emerald-100/12"
           />
         <Container>
-          <MotionDiv variants={fadeUp}>
+          <MotionDiv variants={fadeUp} className="mt-2 md:mt-4">
             <SectionHeading
               eyebrow="The Strive approach"
               title="A club that feels modern — and actually keeps you consistent"
@@ -350,7 +350,7 @@ export default function HomeClient() {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger}
-          className="relative scroll-mt-16 md:scroll-mt-20 lg:scroll-mt-24"
+          className="relative scroll-mt-28 md:scroll-mt-36 lg:scroll-mt-40"
         >
           {/* Section tint */}
           <div
