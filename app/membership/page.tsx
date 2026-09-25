@@ -6,7 +6,8 @@ export default function MembershipPage() {
   return (
     <div className="mt-16 md:mt-20 pb-24">
       <Container>
-        <SectionHeading
+        <div className="mx-auto w-full max-w-3xl text-center">
+          <SectionHeading
           eyebrow="Membership"
           title="Join Strive — membership and pricing"
           desc="Flexible options: pay-as-you-go or monthly membership to access coached sessions and community benefits."
@@ -51,6 +52,9 @@ export default function MembershipPage() {
           </div>
         </div>
 
+        </div>
+
+        <div className="mx-auto w-full max-w-3xl text-center">
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           <div>
             <h3 className="text-lg font-semibold">Pricing</h3>

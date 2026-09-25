@@ -7,7 +7,8 @@ export default function AboutPage() {
   return (
     <div className="mt-16 md:mt-20 pb-24">
       <Container>
-        <SectionHeading
+        <div className="mx-auto w-full max-w-3xl text-center">
+          <SectionHeading
           eyebrow="About"
           title="About Strive Running Club"
           desc="Community-focused coached runs in Glasgow — beginners welcome, with structured sessions and support."
@@ -30,6 +31,9 @@ export default function AboutPage() {
           </div>
         </div>
 
+        </div>
+
+        <div className="mx-auto w-full max-w-3xl text-center">
         <div className="mt-10">
           <h3 className="text-xl font-semibold">Community highlights</h3>
           <p className="mt-2 text-slate-700">Photos and videos from recent sessions.</p>
@@ -41,6 +45,7 @@ export default function AboutPage() {
         <div className="mt-10">
           <Button href="/membership" variant="primary">Join the club</Button>
           <Button href="/runs" variant="secondary" className="ml-3">See sessions</Button>
+        </div>
         </div>
       </Container>
     </div>

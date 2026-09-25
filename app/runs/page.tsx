@@ -6,12 +6,16 @@ export default function RunsPage() {
   return (
     <div className="mt-16 md:mt-20 pb-24">
       <Container>
-        <SectionHeading
+        <div className="mx-auto w-full max-w-3xl text-center">
+          <SectionHeading
           eyebrow="Runs"
           title="All sessions & runs"
           desc="Browse and book upcoming coached sessions and group runs." 
         />
 
+        </div>
+
+        <div className="mx-auto w-full max-w-3xl text-center">
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           <SessionCard
             title="Monday · Easy Social"
