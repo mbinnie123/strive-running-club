@@ -35,7 +35,7 @@ export default function MembershipPage() {
               <li>Priority event booking</li>
             </ul>
             <div className="mt-4">
-              <Button href="/membership/checkout" variant="primary">Join the club</Button>
+              <Button href="/membership/join" variant="primary">Join the club</Button>
             </div>
           </div>
 
@@ -71,7 +71,7 @@ export default function MembershipPage() {
               <li>Turn up 10 minutes early; meet the coach</li>
             </ol>
             <div className="mt-4">
-              <Button href="/membership/checkout" variant="primary">Get started</Button>
+              <Button href="/membership/join" variant="primary">Get started</Button>
             </div>
           </div>
         </div>

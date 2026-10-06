@@ -22,3 +22,14 @@ create table if not exists bookings (
 -- Server uses the service role key; block all public access.
 alter table contact_messages enable row level security;
 alter table bookings enable row level security;
+
+create table if not exists membership_signups (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  type text not null,
+  name text not null,
+  email text not null,
+  phone text,
+  notes text
+);
+alter table membership_signups enable row level security;
