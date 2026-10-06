@@ -74,7 +74,7 @@ export default function MediaGallery() {
 
             {/* Shimmer */}
             <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none">
-              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[shimmer_1.8s_ease-in-out]" />
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[shimmer_1.8s_ease-in-out_infinite]" />
             </div>
 
 
