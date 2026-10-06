@@ -1,0 +1,41 @@
+import { NextResponse } from "next/server";
+import { z } from "zod";
+import { getSupabase } from "@/lib/server/supabase";
+import { escapeHtml, sendMail } from "@/lib/server/mail";
+
+const schema = z.object({
+  name: z.string().trim().min(1).max(100),
+  email: z.string().trim().email().max(200),
+  message: z.string().trim().min(1).max(3000),
+  website: z.string().optional(), // honeypot
+});
+
+export async function POST(req: Request) {
+  const parsed = schema.safeParse(await req.json().catch(() => null));
+  if (!parsed.success) {
+    return NextResponse.json({ error: "Please check your details and try again." }, { status: 400 });
+  }
+  const { name, email, message, website } = parsed.data;
+  if (website) return NextResponse.json({ ok: true }); // bot
+
+  const db = getSupabase();
+  let saved = false;
+  if (db) {
+    const { error } = await db.from("contact_messages").insert({ name, email, message });
+    if (error) console.error("contact insert failed", error);
+    else saved = true;
+  }
+
+  const sent = await sendMail({
+    subject: `New contact message from ${name}`,
+    replyTo: email,
+    html: `<p><strong>Name:</strong> ${escapeHtml(name)}</p>
+<p><strong>Email:</strong> ${escapeHtml(email)}</p>
+<p><strong>Message:</strong></p><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`,
+  });
+
+  if (!saved && !sent) {
+    return NextResponse.json({ error: "Something went wrong. Please try again later." }, { status: 500 });
+  }
+  return NextResponse.json({ ok: true });
+}

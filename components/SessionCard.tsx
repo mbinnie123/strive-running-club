@@ -6,7 +6,9 @@ export default function SessionCard({
   location,
   description,
   price,
+  sessionId,
 }: {
+  sessionId?: string;
   title: string;
   time: string;
   location?: string;
@@ -29,7 +31,7 @@ export default function SessionCard({
 
       <div className="mt-4 flex items-center justify-between">
         <div className="text-sm text-slate-500">{location}</div>
-        <Button href="/membership" variant="primary">Book</Button>
+        <Button href={sessionId ? `/book?session=${sessionId}` : "/book"} variant="primary">Book</Button>
       </div>
     </div>
   );

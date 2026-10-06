@@ -18,6 +18,7 @@ export default function RunsPage() {
         <div className="mx-auto w-full max-w-3xl text-center">
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           <SessionCard
+            sessionId="mon-easy-social"
             title="Monday · Easy Social"
             time="Mon 18:30"
             location="Kelvingrove Park"
@@ -26,6 +27,7 @@ export default function RunsPage() {
           />
 
           <SessionCard
+            sessionId="wed-track-intervals"
             title="Wednesday · Track Intervals"
             time="Wed 19:00"
             location="Bellahouston Track"
@@ -34,6 +36,7 @@ export default function RunsPage() {
           />
 
           <SessionCard
+            sessionId="sat-long-run"
             title="Saturday · Long Run"
             time="Sat 09:00"
             location="Pollok Park"
@@ -42,6 +45,7 @@ export default function RunsPage() {
           />
 
           <SessionCard
+            sessionId="sun-recovery-run"
             title="Sunday · Recovery Run"
             time="Sun 09:30"
             location="Glasgow Green"
