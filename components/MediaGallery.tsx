@@ -12,9 +12,9 @@ const media = [
   { type: "image", src: "/instagram-media-6.jpg", alt: "Club members" },
   { type: "image", src: "/instagram-media-7.jpg", alt: "Running together" },
   { type: "image", src: "/instagram-media-8.jpg", alt: "Community moment" },
-  { type: "image", src: "/instagram-media-9.jpg", alt: "Strive members" },
-  { type: "image", src: "/instagram-media-10.jpg", alt: "Group training" },
-  { type: "image", src: "/instagram-media-11.jpg", alt: "Running community" },
+  { type: "image", src: "/instagram-media-9.jpg", alt: "Strive members", hideOnMobile: true },
+  { type: "image", src: "/instagram-media-10.jpg", alt: "Group training", hideOnMobile: true },
+  { type: "image", src: "/instagram-media-11.jpg", alt: "Running community", hideOnMobile: true },
 ];
 
 export default function MediaGallery() {
@@ -64,7 +64,9 @@ export default function MediaGallery() {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="group relative overflow-hidden rounded-2xl border border-blue-100 cursor-pointer"
+            className={`group relative overflow-hidden rounded-2xl border border-blue-100 cursor-pointer ${
+              item.hideOnMobile ? "hidden md:block" : ""
+            }`}
             onClick={() => setSelectedIndex(index)}
           >
             {/* Background */}
