@@ -70,7 +70,12 @@ export default function MediaGallery() {
             onClick={() => setSelectedIndex(index)}
           >
             {/* Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-sky-200 to-blue-200 opacity-0 group-hover:opacity-100 transition duration-300 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-br from-sky-200/20 to-blue-200/20 opacity-0 group-hover:opacity-100 transition duration-300 z-10 pointer-events-none" />
+
+            {/* Shimmer */}
+            <div className="absolute inset-0 z-20 overflow-hidden pointer-events-none">
+              <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-[shimmer_1.1s_ease-in-out]" />
+            </div>
 
             {/* Media */}
             <div className="relative overflow-hidden bg-slate-100 aspect-square">
