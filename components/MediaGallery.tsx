@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 const media = [
   { type: "image", src: "/instagram-media-1.jpg", alt: "Running club community" },
   { type: "image", src: "/instagram-media-2.jpg", alt: "Group run session" },
-  { type: "video", src: "/instagram-media-3.mp4", alt: "Community run" },
-  { type: "video", src: "/instagram-media-4.mp4", alt: "Training session" },
-  { type: "video", src: "/instagram-media-5.mp4", alt: "Group activity" },
+  { type: "video", src: "/instagram-media-3.mp4", poster: "/instagram-media-3-poster.jpg", alt: "Community run" },
+  { type: "video", src: "/instagram-media-4.mp4", poster: "/instagram-media-4-poster.jpg", alt: "Training session" },
+  { type: "video", src: "/instagram-media-5.mp4", poster: "/instagram-media-5-poster.jpg", alt: "Group activity" },
   { type: "image", src: "/instagram-media-6.jpg", alt: "Club members" },
   { type: "image", src: "/instagram-media-7.jpg", alt: "Running together" },
   { type: "image", src: "/instagram-media-8.jpg", alt: "Community moment" },
@@ -84,6 +84,7 @@ export default function MediaGallery() {
                 <>
                   <video
                     src={item.src}
+                    poster={item.poster}
                     muted
                     playsInline
                     preload="metadata"
@@ -135,6 +136,7 @@ export default function MediaGallery() {
                 <div style={{ height: '80vh', width: 'min(45vh, 90vw)' }} className="rounded-xl overflow-hidden bg-black">
                   <video
                     src={media[selectedIndex].src}
+                    poster={media[selectedIndex].poster}
                     controls
                     autoPlay
                     className="h-full w-full object-contain"
