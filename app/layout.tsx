@@ -29,9 +29,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-GB">
-      <body className={`${display.variable} ${body.variable} min-h-screen mt-5 md:mt-0 pt-0 md:pt-20 lg:pt-20 overflow-x-hidden bg-white text-black antialiased`}>
+      <body className={`${display.variable} ${body.variable} min-h-screen flex flex-col mt-5 md:mt-0 pt-0 md:pt-20 lg:pt-20 overflow-x-hidden bg-white text-black antialiased`}>
         <Header />
-        {children}
+        <main className="flex-1 flex flex-col">{children}</main>
         <Footer />
       </body>
     </html>

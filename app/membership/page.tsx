@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 
 export default function MembershipPage() {
   return (
-    <div className="mt-16 md:mt-20 pb-24">
+    <div className="flex-1 flex flex-col mt-16 md:mt-20 pb-24">
       <Container>
         <div className="mx-auto w-full max-w-3xl text-center">
           <SectionHeading
