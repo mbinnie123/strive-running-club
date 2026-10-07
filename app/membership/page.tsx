@@ -78,12 +78,9 @@ export default function MembershipPage() {
 
         <div className="mt-10">
           <h3 className="text-lg font-semibold">What happens after you book</h3>
-          <p className="mt-2 text-slate-700">After booking a block or membership the coach will usually:</p>
-          <ul className="mt-3 list-inside list-disc text-slate-700">
-            <li>Send an invoice or request payment (many clients transfer payment ahead of sessions).</li>
-            <li>For 1-to-1 clients only: invite you to TrueCoach where your workouts, progress photos and calorie targets are shared.</li>
-            <li>Ask for baseline info (weight, height, age) and request a weekly progress update.</li>
-          </ul>
+          <p className="mt-2 text-slate-700">
+            After booking a block or membership the coach will usually send an invoice or request payment (many clients transfer payment ahead of sessions).
+          </p>
         </div>
         </div>
       </Container>
