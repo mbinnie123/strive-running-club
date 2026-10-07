@@ -44,5 +44,17 @@ export async function POST(req: Request) {
   if (!saved && !sent) {
     return NextResponse.json({ error: "Something went wrong. Please try again later." }, { status: 500 });
   }
+
+  await sendMail({
+    to: [email],
+    subject: "Thanks for contacting Strive Running Club",
+    html: emailLayout({
+      heading: `Thanks for getting in touch, ${name}!`,
+      intro: "We've received your message and someone will be in touch soon.",
+      message: { label: "Your message", text: message },
+      footer: "Strive Running Club Glasgow · striverunningclubglasgow.co.uk",
+    }),
+  });
+
   return NextResponse.json({ ok: true });
 }
