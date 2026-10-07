@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getSupabase } from "@/lib/server/supabase";
-import { escapeHtml, sendMail } from "@/lib/server/mail";
+import { sendMail } from "@/lib/server/mail";
+import { emailLayout } from "@/lib/server/email-template";
 import { bookableSessions } from "@/lib/booking-sessions";
 
 const schema = z.object({
@@ -66,22 +67,36 @@ export async function POST(req: Request) {
   }
 
   const when = `${session.title} - ${session.time}, ${d.date} (${session.location})`;
+  const rows: [string, string][] = [
+    ["Session", session.title],
+    ["Date", d.date],
+    ["Time", session.time],
+    ["Location", session.location],
+  ];
   await Promise.all([
     sendMail({
       subject: `New booking: ${session.title} on ${d.date}`,
       replyTo: d.email,
-      html: `<p><strong>Session:</strong> ${escapeHtml(when)}</p>
-<p><strong>Name:</strong> ${escapeHtml(d.name)}</p>
-<p><strong>Email:</strong> ${escapeHtml(d.email)}</p>
-<p><strong>Phone:</strong> ${escapeHtml(d.phone || "-")}</p>
-<p><strong>Notes:</strong> ${escapeHtml(d.notes || "-")}</p>`,
+      html: emailLayout({
+        heading: "New session booking",
+        rows: [
+          ...rows,
+          ["Name", d.name],
+          ["Email", d.email],
+          ["Phone", d.phone || "-"],
+          ["Notes", d.notes || "-"],
+        ],
+      }),
     }),
     sendMail({
       to: [d.email],
       subject: "Your Strive Running Club booking",
-      html: `<p>Hi ${escapeHtml(d.name)},</p>
-<p>You're booked on <strong>${escapeHtml(when)}</strong>. See you there!</p>
-<p>Strive Running Club Glasgow</p>`,
+      html: emailLayout({
+        heading: `You're booked, ${d.name}!`,
+        intro: `We've reserved your place on ${when}. See you there!`,
+        rows,
+        footer: "Can't make it? Just reply to this email and let us know.",
+      }),
     }),
   ]);
 

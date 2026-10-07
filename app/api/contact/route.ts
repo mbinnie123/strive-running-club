@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getSupabase } from "@/lib/server/supabase";
-import { escapeHtml, sendMail } from "@/lib/server/mail";
+import { sendMail } from "@/lib/server/mail";
+import { emailLayout } from "@/lib/server/email-template";
 
 const schema = z.object({
   name: z.string().trim().min(1).max(100),
@@ -29,9 +30,15 @@ export async function POST(req: Request) {
   const sent = await sendMail({
     subject: `New contact message from ${name}`,
     replyTo: email,
-    html: `<p><strong>Name:</strong> ${escapeHtml(name)}</p>
-<p><strong>Email:</strong> ${escapeHtml(email)}</p>
-<p><strong>Message:</strong></p><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`,
+    html: emailLayout({
+      heading: "New contact message",
+      rows: [
+        ["Name", name],
+        ["Email", email],
+      ],
+      message: { label: "Message", text: message },
+      footer: "Reply to this email to respond directly to the sender.",
+    }),
   });
 
   if (!saved && !sent) {

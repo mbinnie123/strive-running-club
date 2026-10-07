@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getSupabase } from "@/lib/server/supabase";
-import { escapeHtml, sendMail } from "@/lib/server/mail";
+import { sendMail } from "@/lib/server/mail";
+import { emailLayout } from "@/lib/server/email-template";
 import { membershipTypes } from "@/lib/membership-types";
 
 const schema = z.object({
@@ -40,11 +41,16 @@ export async function POST(req: Request) {
   const sent = await sendMail({
     subject: `New membership sign-up: ${d.name} (${label})`,
     replyTo: d.email,
-    html: `<p><strong>Type:</strong> ${escapeHtml(label)}</p>
-<p><strong>Name:</strong> ${escapeHtml(d.name)}</p>
-<p><strong>Email:</strong> ${escapeHtml(d.email)}</p>
-<p><strong>Phone:</strong> ${escapeHtml(d.phone || "-")}</p>
-<p><strong>Notes:</strong> ${escapeHtml(d.notes || "-")}</p>`,
+    html: emailLayout({
+      heading: "New membership sign-up",
+      rows: [
+        ["Type", label],
+        ["Name", d.name],
+        ["Email", d.email],
+        ["Phone", d.phone || "-"],
+        ["Notes", d.notes || "-"],
+      ],
+    }),
   });
 
   if (!saved && !sent) {
@@ -54,9 +60,10 @@ export async function POST(req: Request) {
   await sendMail({
     to: [d.email],
     subject: "Welcome to Strive Running Club",
-    html: `<p>Hi ${escapeHtml(d.name)},</p>
-<p>Thanks for signing up for <strong>${escapeHtml(label)}</strong>. We'll be in touch shortly with next steps.</p>
-<p>Strive Running Club Glasgow</p>`,
+    html: emailLayout({
+      heading: `Welcome to Strive, ${d.name}!`,
+      intro: `Thanks for signing up for ${label}. We'll be in touch shortly with next steps.`,
+    }),
   });
 
   return NextResponse.json({ ok: true });
