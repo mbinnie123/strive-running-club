@@ -59,7 +59,7 @@ export default function MembershipPage() {
           <div>
             <h3 className="text-lg font-semibold">Pricing</h3>
             <p className="mt-2 text-slate-700">
-              Memberships start from a competitive monthly price — we offer discounts for students and NHS staff. Drop-in sessions are priced individually.
+              Prices for monthly membership and pay-as-you-go sessions will be listed here soon.
             </p>
           </div>
 
@@ -81,7 +81,7 @@ export default function MembershipPage() {
           <p className="mt-2 text-slate-700">After booking a block or membership the coach will usually:</p>
           <ul className="mt-3 list-inside list-disc text-slate-700">
             <li>Send an invoice or request payment (many clients transfer payment ahead of sessions).</li>
-            <li>Invite you to TrueCoach where your workouts, progress photos and calorie targets are shared.</li>
+            <li>For 1-to-1 clients only: invite you to TrueCoach where your workouts, progress photos and calorie targets are shared.</li>
             <li>Ask for baseline info (weight, height, age) and request a weekly progress update.</li>
           </ul>
         </div>

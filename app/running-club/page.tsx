@@ -34,7 +34,7 @@ export default function RunningClubPage() {
 
           <div>
             <h3 className="text-xl font-semibold">Pricing & How to join</h3>
-            <p className="mt-3 text-slate-700">We offer drop-in sessions, block bookings and monthly membership. Students and key workers may be eligible for discounts. To join, pick a plan and book sessions via the sessions page.</p>
+            <p className="mt-3 text-slate-700">We offer drop-in sessions, block bookings and monthly membership. To join, pick a plan and book sessions via the sessions page.</p>
             <div className="mt-4">
               <Button href="/membership" variant="primary">See membership & book</Button>
             </div>
@@ -47,7 +47,6 @@ export default function RunningClubPage() {
             <li>Typical session length is 40–60 minutes; many clients get a solid 40-minute workout when scheduling around calls.</li>
             <li>Free taster session often offered — then block bookings or membership packages are available.</li>
             <li>Meet: Axiom Building, Washington Street, G3 8AZ (coach usually meets clients outside and shows them in).</li>
-            <li>After booking for a block, clients receive an invite to TrueCoach where programmes and weekly workouts are hosted.</li>
             <li>Recommended apps: Stridekick (social tracking), MyFitnessPal (calorie tracking) — coaches use these to monitor progress.</li>
             <li>Payments are often requested before the session or via an invoice for package bookings.</li>
           </ul>
