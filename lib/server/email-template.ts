@@ -1,4 +1,5 @@
 import { escapeHtml } from "@/lib/server/mail";
+import { site } from "@/lib/site";
 
 type Row = [label: string, value: string];
 
@@ -34,7 +35,10 @@ export function emailLayout(opts: {
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8fbff;padding:24px 12px;">
     <tr><td align="center">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border:1px solid #dbe7fb;border-radius:16px;overflow:hidden;">
-        <tr><td style="background:#1768f5;padding:20px 28px;color:#ffffff;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;">Strive Running Club · Glasgow</td></tr>
+        <tr><td align="center" style="background:#ffffff;padding:24px 28px 16px;">
+          <a href="${site.url}" style="text-decoration:none;"><img src="${site.url}/email-logo.png" width="260" alt="Strive Running Club Glasgow" style="display:block;border:0;outline:none;width:260px;max-width:100%;height:auto;"></a>
+        </td></tr>
+        <tr><td style="background:#1768f5;height:6px;line-height:6px;font-size:0;">&nbsp;</td></tr>
         <tr><td style="padding:28px;">
           <h1 style="margin:0 0 8px;font-size:22px;line-height:1.3;color:#0f172a;">${escapeHtml(opts.heading)}</h1>
           ${opts.intro ? `<p style="margin:0 0 20px;font-size:15px;line-height:1.6;color:#334155;">${escapeHtml(opts.intro)}</p>` : ""}

@@ -62,7 +62,12 @@ async function main() {
     path.join(publicDir, "og-image.png")
   );
 
-  console.log("Generated favicons, apple touch icon, and OG/social share image in /public.");
+  // Logo for HTML emails (email clients don't support SVG). 2x for retina, displayed at ~260px wide.
+  await (await logoOnWhite({ canvasW: 560, canvasH: 260, pad: 0.04 })).toFile(
+    path.join(publicDir, "email-logo.png")
+  );
+
+  console.log("Generated favicons, apple touch icon, OG/social share image and email logo in /public.");
 }
 
 main().catch((err) => {
