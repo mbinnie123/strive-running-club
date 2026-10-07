@@ -1,5 +1,4 @@
 import "server-only";
-import nodemailer from "nodemailer";
 
 const RECIPIENTS = ["matthewdouglaspt@outlook.com", "marcus@promodesigns.co.uk"];
 
@@ -12,18 +11,6 @@ export function escapeHtml(s: string) {
     .replace(/'/g, "&#39;");
 }
 
-function transport() {
-  const host = process.env.SMTP_HOST;
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  if (!host || !user || !pass) return null;
-  const port = Number(process.env.SMTP_PORT || 587);
-  return {
-    t: nodemailer.createTransport({ host, port, secure: port === 465, auth: { user, pass } }),
-    from: process.env.SMTP_FROM || user,
-  };
-}
-
 /** Returns true if sent. Never throws - the DB is the source of truth. */
 export async function sendMail(opts: {
   subject: string;
@@ -31,19 +18,29 @@ export async function sendMail(opts: {
   replyTo?: string;
   to?: string[];
 }) {
-  const cfg = transport();
-  if (!cfg) {
-    console.warn("SMTP not configured; skipping email");
+  const key = process.env.RESEND_API_KEY;
+  if (!key) {
+    console.warn("RESEND_API_KEY not set; skipping email");
     return false;
   }
+  // Until a domain is verified in Resend, onboarding@resend.dev only delivers to the account owner.
+  const from = process.env.MAIL_FROM || "Strive Running Club <onboarding@resend.dev>";
   try {
-    await cfg.t.sendMail({
-      from: `"Strive Running Club" <${cfg.from}>`,
-      to: opts.to ?? RECIPIENTS,
-      replyTo: opts.replyTo,
-      subject: opts.subject,
-      html: opts.html,
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from,
+        to: opts.to ?? RECIPIENTS,
+        reply_to: opts.replyTo,
+        subject: opts.subject,
+        html: opts.html,
+      }),
     });
+    if (!res.ok) {
+      console.error("Resend failed", res.status, await res.text());
+      return false;
+    }
     return true;
   } catch (err) {
     console.error("Email failed", err);
