@@ -67,3 +67,24 @@ h1, h2, h3, h4 {
     animation: none !important;
   }
 }
+
+/* Seamless marquee: two identical groups, shift by exactly one group width */
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
