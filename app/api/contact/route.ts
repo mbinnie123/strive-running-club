@@ -3,6 +3,7 @@ import { z } from "zod";
 import { getSupabase } from "@/lib/server/supabase";
 import { sendMail } from "@/lib/server/mail";
 import { emailLayout } from "@/lib/server/email-template";
+import { site } from "@/lib/site";
 
 const schema = z.object({
   name: z.string().trim().min(1).max(100),
@@ -47,11 +48,18 @@ export async function POST(req: Request) {
 
   await sendMail({
     to: [email],
+    replyTo: "marcus@promodesigns.co.uk",
     subject: "Thanks for contacting Strive Running Club",
     html: emailLayout({
       heading: `Thanks for getting in touch, ${name}!`,
       intro: "We've received your message and someone will be in touch soon.",
       message: { label: "Your message", text: message },
+      nextSteps: [
+        "We read every message and reply personally.",
+        "Expect to hear back from us soon.",
+        "In the meantime, have a look at our weekly runs.",
+      ],
+      button: { label: "See our runs", href: `${site.url}/runs` },
       footer: "Strive Running Club Glasgow · striverunningclubglasgow.co.uk",
     }),
   });

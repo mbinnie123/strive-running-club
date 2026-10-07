@@ -10,6 +10,10 @@ export function emailLayout(opts: {
   rows?: Row[];
   /** Free-text block shown in a quote box (e.g. the contact message). Escaped here. */
   message?: { label: string; text: string };
+  /** Short "what happens next" list. */
+  nextSteps?: string[];
+  /** Call-to-action button. */
+  button?: { label: string; href: string };
   footer?: string;
 }) {
   const rows = (opts.rows ?? [])
@@ -27,6 +31,21 @@ export function emailLayout(opts: {
         <div style="font-size:13px;color:#64748b;margin-bottom:8px;">${escapeHtml(opts.message.label)}</div>
         <div style="background:#f1f6ff;border-left:4px solid #1768f5;border-radius:8px;padding:14px 16px;font-size:15px;line-height:1.6;color:#0f172a;">${escapeHtml(opts.message.text).replace(/\n/g, "<br>")}</div>
       </div>`
+    : "";
+
+  const nextSteps = opts.nextSteps?.length
+    ? `<div style="margin-top:24px;background:#f8fbff;border:1px solid #dbe7fb;border-radius:12px;padding:16px 18px;">
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#1768f5;margin-bottom:8px;">What happens next</div>
+        <ol style="margin:0;padding-left:20px;font-size:14px;line-height:1.7;color:#334155;">${opts.nextSteps
+          .map((s) => `<li>${escapeHtml(s)}</li>`)
+          .join("")}</ol>
+      </div>`
+    : "";
+
+  const button = opts.button
+    ? `<table role="presentation" cellpadding="0" cellspacing="0" style="margin-top:24px;"><tr><td style="background:#1768f5;border-radius:999px;">
+        <a href="${escapeHtml(opts.button.href)}" style="display:inline-block;padding:12px 24px;font-size:15px;font-weight:700;color:#ffffff;text-decoration:none;">${escapeHtml(opts.button.label)}</a>
+      </td></tr></table>`
     : "";
 
   return `<!doctype html>

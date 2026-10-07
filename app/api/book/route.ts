@@ -3,6 +3,7 @@ import { z } from "zod";
 import { getSupabase } from "@/lib/server/supabase";
 import { sendMail } from "@/lib/server/mail";
 import { emailLayout } from "@/lib/server/email-template";
+import { site } from "@/lib/site";
 import { bookableSessions } from "@/lib/booking-sessions";
 
 const schema = z.object({
@@ -90,12 +91,18 @@ export async function POST(req: Request) {
     }),
     sendMail({
       to: [d.email],
+      replyTo: "marcus@promodesigns.co.uk",
       subject: "Your Strive Running Club booking",
       html: emailLayout({
         heading: `You're booked, ${d.name}!`,
-        intro: `We've reserved your place on ${when}. See you there!`,
+        intro: `We've reserved your place on ${session.title}. See you there!`,
         rows,
-        footer: "Can't make it? Just reply to this email and let us know.",
+        nextSteps: [
+          "Arrive 10 minutes early to meet the coach.",
+          "Bring water and wear suitable running kit.",
+          "Can't make it? Just reply to this email and let us know.",
+        ],
+        button: { label: "View all runs", href: `${site.url}/runs` },
       }),
     }),
   ]);
