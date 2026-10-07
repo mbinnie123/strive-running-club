@@ -91,7 +91,7 @@ export async function POST(req: Request) {
     }),
     sendMail({
       to: [d.email],
-      replyTo: "marcus@promodesigns.co.uk",
+      replyTo: "matthewdouglaspt@outlook.com",
       subject: "Your Strive Running Club booking",
       html: emailLayout({
         heading: `You're booked, ${d.name}!`,

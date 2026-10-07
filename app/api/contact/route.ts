@@ -48,7 +48,7 @@ export async function POST(req: Request) {
 
   await sendMail({
     to: [email],
-    replyTo: "marcus@promodesigns.co.uk",
+    replyTo: "matthewdouglaspt@outlook.com",
     subject: "Thanks for contacting Strive Running Club",
     html: emailLayout({
       heading: `Thanks for getting in touch, ${name}!`,
