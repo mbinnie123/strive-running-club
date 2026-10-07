@@ -22,7 +22,7 @@ export default function MembershipPage() {
               <li>No commitment</li>
             </ul>
             <div className="mt-4">
-              <Button href="/sessions" variant="secondary">View sessions</Button>
+              <Button href="/runs" variant="secondary">View sessions</Button>
             </div>
           </div>
 

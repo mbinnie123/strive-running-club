@@ -54,6 +54,16 @@ export default function RunsPage() {
           />
         </div>
         </div>
+
+        <div className="mx-auto mt-10 w-full max-w-3xl text-center">
+          <h3 className="text-lg font-semibold">Booking &amp; session notes</h3>
+          <ul className="mt-3 list-inside list-disc text-slate-700">
+            <li>Sessions are bookable — the coach prefers bookings rather than walk-ins so attendance is known ahead of time.</li>
+            <li>Typical session length is 40–60 minutes; some sessions may finish early for coach availability.</li>
+            <li>Meeting point for gym-based sessions: Axiom Building, Washington Street, G3 8AZ (coach meets outside).</li>
+            <li>Online programming via TrueCoach is available for 1-to-1 clients only.</li>
+          </ul>
+        </div>
       </Container>
     </div>
   );
