@@ -376,10 +376,6 @@ export default function HomeClient() {
                   <span>Sat · Long run + coffee</span><span className="text-slate-500">Social</span>
                 </li>
               </ul>
-
-              <p className="mt-4 text-sm text-slate-500">
-                Later we can wire this to a Google Sheet / CMS so you can update it quickly.
-              </p>
             </div>
 
             <div className="rounded-3xl border border-blue-100 bg-white p-7">
